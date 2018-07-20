@@ -1,4 +1,6 @@
 fr:
+  form:
+    cancel: Retour
   activerecord:
     attributes:
       user:
@@ -110,7 +112,9 @@ fr:
     sessions:
       already_signed_out: Déconnecté(e).
       new:
+        remember_me: Se souvenir de moi
         sign_in: Connexion
+        cancel: Retour
       signed_in: Connecté(e) avec succès.
       signed_out: Déconnecté(e) avec succès.
     shared:

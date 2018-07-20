@@ -11,7 +11,7 @@ nav.navbar role="navigation" aria-label="main navigation"
     .navbar-start
     .navbar-end
       - if current_user
-        .navbar-item = current_user.first_name.capitalize
+        .navbar-item = current_user.email
         .navbar-item
           = link_to destroy_user_session_path, method: :delete, class: 'button is-warning is-outlined' do
             = t("devise.shared.links.sign_out")
