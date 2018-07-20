@@ -1,0 +1,25 @@
+nav.navbar role="navigation" aria-label="main navigation"
+  .navbar-brand
+    = link_to 'Seazon @ Dojo', root_path, class: 'navbar-item'
+
+    a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="nav-menu"
+      span aria-hidden="true"
+      span aria-hidden="true"
+      span aria-hidden="true"
+
+  .navbar-menu#nav-menu
+    .navbar-start
+    .navbar-end
+      - if current_user
+        .navbar-item = current_user.first_name.capitalize
+        .navbar-item
+          = link_to destroy_user_session_path, method: :delete, class: 'button is-warning is-outlined' do
+            = t("devise.shared.links.sign_out")
+            | &nbsp;
+            i.fas.fa-sign-out-alt
+      - else
+        .navbar-item
+          = link_to new_user_session_path, class: 'button is-primary is-outlined' do
+            = t("devise.shared.links.sign_in")
+            | &nbsp;
+            i.fas.fa-sign-in-alt

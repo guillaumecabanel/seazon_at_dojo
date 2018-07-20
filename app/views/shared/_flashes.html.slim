@@ -1,0 +1,14 @@
+- if notice
+  .container
+    .columns
+      .column.is-half-desktop.is-offset-3-desktop
+        .notification.is-info
+          button.delete
+          = notice
+- if alert
+  .container
+    .columns
+      .column.is-half-desktop.is-offset-3-desktop
+        .notification.is-danger
+          button.delete
+          = alert
