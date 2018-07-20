@@ -8,7 +8,7 @@ gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
 
-gem 'slim'
+gem 'slim-rails'
 gem 'autoprefixer-rails'
 gem 'sass-rails'
 gem 'simple_form'
@@ -20,6 +20,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.7'
   gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
