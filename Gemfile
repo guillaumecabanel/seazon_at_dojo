@@ -7,6 +7,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
+gem 'devise'
 
 gem 'slim-rails'
 gem 'autoprefixer-rails'
