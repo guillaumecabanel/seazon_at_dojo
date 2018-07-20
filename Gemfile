@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
 
+gem 'slim'
 gem 'autoprefixer-rails'
 gem 'sass-rails'
 gem 'simple_form'
