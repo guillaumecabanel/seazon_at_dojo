@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  
-  get 'pages/home'
+  root controller: :pages, action: :home
 end
