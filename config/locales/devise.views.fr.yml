@@ -1,6 +1,4 @@
 fr:
-  form:
-    cancel: Retour
   activerecord:
     attributes:
       user:

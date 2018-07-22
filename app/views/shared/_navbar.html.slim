@@ -9,6 +9,7 @@ nav.navbar role="navigation" aria-label="main navigation"
 
   .navbar-menu#nav-menu
     .navbar-start
+      = link_to t("activerecord.models.meals"), meals_path, class: 'navbar-item'
     .navbar-end
       - if current_user
         .navbar-item = current_user.email

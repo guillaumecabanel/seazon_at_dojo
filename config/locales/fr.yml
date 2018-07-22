@@ -1,0 +1,15 @@
+fr:
+  form:
+    edit: Modifier
+    delete: Supprimer
+    cancel: Retour
+  activerecord:
+    attributes:
+      user:
+      meal:
+        title: Titre
+    models:
+      user: Utilisateur
+      meal: Plat
+      meals: Les plats
+      no_meals: Il n'y pas de plat.

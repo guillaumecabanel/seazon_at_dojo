@@ -1,0 +1,24 @@
+$meal-border-radius:           4px;
+$meal-background-color:        hsl(0, 0%, 100%);
+$meal-color:                   hsl(0, 0%, 14%);
+$meal-footer-background-color: hsl(0, 0%, 97%);
+$meal-footer-color:            hsl(0, 0%, 29%);
+
+.meal{
+  margin:           0.5rem 0 1.8rem 0;
+  padding:          1rem 1.25rem;
+  padding-bottom:   0;
+  background-color: $meal-background-color;
+  color:            $meal-color;
+  border-radius:    $meal-border-radius;
+  box-shadow:       0 2px 6px 0 hsla(0, 0%, 0%, 0.15);
+
+  .meal-footer{
+    margin:                     1rem -1.25rem 0 -1.25rem;
+    padding:                    0.8rem 1.25rem;
+    background-color:           $meal-footer-background-color;
+    color:                      $meal-footer-color;
+    border-bottom-left-radius:  $meal-border-radius;
+    border-bottom-right-radius: $meal-border-radius;
+  }
+}

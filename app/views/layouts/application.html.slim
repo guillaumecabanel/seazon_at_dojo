@@ -14,6 +14,7 @@ html
     br
     = render 'shared/flashes'
     br
-    = yield
+    .container
+      = yield
     = javascript_include_tag 'application'
     = javascript_pack_tag 'application'
