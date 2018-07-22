@@ -1,5 +1,8 @@
 .meal
-  = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
+  - if meal.photo.url.nil?
+    = image_tag "http://via.placeholder.com/400x200", title: meal.title, class: 'meal-picture'
+  - else
+    = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
   h2.title.is-5 = meal.title
   .meal-footer
     .flexbox.flexbox-between
