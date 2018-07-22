@@ -225,6 +225,7 @@ fr:
       user:
       meal:
         title: Titre
+        veggie: Végétarien
     models:
       user: Utilisateur
       meal: Plat

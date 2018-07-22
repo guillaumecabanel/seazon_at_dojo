@@ -1,7 +1,31 @@
 = simple_form_for @meal do |meal_form|
   .box.box-with-footer
     = meal_form.input :title
-    = meal_form.input :photo
+    .field
+      label.checkbox
+        input value="false" name="meal[veggie]" type="hidden"
+        input type="checkbox" name="meal[veggie]" id="meal_veggie" value="true"
+        span>
+        = t("activerecord.attributes.meal.veggie")
+
+    - if meal.photo.url.nil?
+      = image_tag "http://via.placeholder.com/400x200", title: meal.title, class: 'meal-picture'
+    - else
+      = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
+    .field
+      .file.meal_photo
+        label.file-label for="meal_photo"
+          input.file-input name="meal[photo]" id="meal_photo" type="file"
+          span.file-cta
+            span.file-icon
+              i.fas.fa-upload
+            span.file-label
+              - if meal.new_record? || meal.photo.url.nil?
+                | Ajouter une photo
+              - else
+                | Modifier la photo
+            span.file-name
+
     = meal_form.input :photo_cache, as: :hidden
 
   .box-footer

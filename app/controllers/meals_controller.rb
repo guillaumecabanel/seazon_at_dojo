@@ -48,6 +48,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:title, :photo)
+    params.require(:meal).permit(:title, :photo, :veggie)
   end
 end
