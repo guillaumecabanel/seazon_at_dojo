@@ -1,0 +1,17 @@
+= simple_form_for serving do |serving_form|
+  .box.box-with-footer
+    = serving_form.input :price
+    = serving_form.input :quantity
+    = serving_form.input :best_before
+
+  .box-footer
+    .flexbox.flexbox-between
+      .flexbox-item.flexbox-main-item
+      .field.is-grouped
+        .control
+          = link_to t("form.cancel"), servings_path, class: 'button is-text'
+        .control
+          - if serving.new_record?
+            = serving_form.submit t("activerecord.models.new_serving"), class: 'button is-success'
+          - else
+            = serving_form.submit t("activerecord.models.edit_serving"), class: 'button is-info'

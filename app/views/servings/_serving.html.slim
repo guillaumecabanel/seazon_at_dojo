@@ -1,0 +1,15 @@
+.serving
+  - if serving.meal.photo.url.nil?
+    = image_tag "http://via.placeholder.com/400x200", title: serving.meal.title, class: 'meal-picture'
+  - else
+    = cl_image_tag serving.meal.photo, height: 200, width: 400, crop: :fill, title: serving.meal.title, class: 'meal-picture'
+  h2.title.is-5 = serving.meal.title
+  -if serving.meal.veggie
+    span.tag.is-success = t("activerecord.attributes.meal.veggie")
+  .meal-footer
+    .flexbox.flexbox-between
+      .field.is-grouped
+        .control
+          = link_to t("form.edit"), edit_serving_path(serving), class: 'button is-small is-info is-outlined'
+        .control
+          = link_to t("form.delete"), serving_path(serving), method: :delete, class: 'button is-small is-danger is-outlined'

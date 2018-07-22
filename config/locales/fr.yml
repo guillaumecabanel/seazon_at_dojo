@@ -226,6 +226,10 @@ fr:
       meal:
         title: Titre
         veggie: Végétarien
+      serving:
+        price: Prix
+        quantity: Quantité
+        best_before: À consommer avant le
     models:
       user: Utilisateur
       meal: Plat
@@ -238,3 +242,13 @@ fr:
       edit_meal_success: Le plat a été modifié avec succès.
       edit_meal_errors: Une erreur s'est produite lors de la modification du plat, veuillez vérifier les champs.
       meal_destroyed: Le plat a bien été supprimé.
+      serving: Repas
+      servings: Les repas
+      no_servings: Il n'y pas de repas.
+      new_serving: Ajouter un repas
+      edit_serving: Modifier ce repas
+      new_serving_success: Le nouveau repas a été créé avec succès.
+      new_serving_errors: Une erreur s'est produite lors de la création du repas, veuillez vérifier les champs.
+      edit_serving_success: Le repas a été modifié avec succès.
+      edit_serving_errors: Une erreur s'est produite lors de la modification du repas, veuillez vérifier les champs.
+      serving_destroyed: Le repas a bien été supprimé.

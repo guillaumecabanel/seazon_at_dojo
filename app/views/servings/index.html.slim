@@ -1,0 +1,11 @@
+h1.title.is-1 = t("activerecord.models.servings")
+
+= link_to t("activerecord.models.new_serving"), new_serving_path, class: 'button is-success is-outlined'
+
+- if @servings.any?
+  .columns.is-multiline.is-mobile
+      - @servings.each do |serving|
+        .column.is-one-quarter
+          = render 'serving', serving: serving
+- else
+  .notification = t("activerecord.models.no_servings")
