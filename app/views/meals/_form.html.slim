@@ -1,0 +1,17 @@
+= simple_form_for @meal do |meal_form|
+  .box.box-with-footer
+    = meal_form.input :title
+    = meal_form.input :photo
+    = meal_form.input :photo_cache, as: :hidden
+
+  .box-footer
+    .flexbox.flexbox-between
+      .flexbox-item.flexbox-main-item
+      .field.is-grouped
+        .control
+          = link_to t("form.cancel"), meals_path, class: 'button is-text'
+        .control
+          - if meal.new_record?
+            = meal_form.submit t("activerecord.models.new_meal"), class: 'button is-success'
+          - else
+            = meal_form.submit t("activerecord.models.edit_meal"), class: 'button is-info'

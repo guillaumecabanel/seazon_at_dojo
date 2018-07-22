@@ -1,0 +1,10 @@
+.meal
+  = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
+  h2.title.is-5 = meal.title
+  .meal-footer
+    .flexbox.flexbox-between
+      .field.is-grouped
+        .control
+          = link_to t("form.edit"), edit_meal_path(meal), class: 'button is-small is-info is-outlined'
+        .control
+          = link_to t("form.delete"), meal_path(meal), method: :delete, class: 'button is-small is-danger is-outlined'

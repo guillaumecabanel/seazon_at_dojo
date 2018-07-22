@@ -1,15 +1,11 @@
 h1.title.is-1 = t("activerecord.models.meals")
 
-.columns.is-multiline.is-mobile
-  - if @meals.any?
+= link_to t("activerecord.models.new_meal"), new_meal_path, class: 'button is-success is-outlined'
+
+- if @meals.any?
+  .columns.is-multiline.is-mobile
       - @meals.each do |meal|
         .column.is-one-quarter
-          = render 'card', meal: meal
-  - else
-    .notification = t("activerecord.models.no_meals")
-
-  .column.is-one-quarter
-    .meal
-      = image_tag "http://via.placeholder.com/400x200", title: "Add meal", class: 'meal-picture'
-      h2.title.is-5 Add meal
-      .meal-footer
+          = render 'meal', meal: meal
+- else
+  .notification = t("activerecord.models.no_meals")

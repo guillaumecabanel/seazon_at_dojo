@@ -10,6 +10,9 @@ gem 'redis'
 gem 'devise'
 gem 'devise-i18n'
 
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+
 gem 'slim-rails'
 gem 'autoprefixer-rails'
 gem 'sass-rails'
