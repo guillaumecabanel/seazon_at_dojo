@@ -8,14 +8,15 @@
         span>
         = t("activerecord.attributes.meal.veggie")
 
-    - if meal.photo.url.nil?
-      = image_tag "http://via.placeholder.com/400x200", title: meal.title, class: 'meal-picture'
-    - else
-      = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
+    .photo
+      - if meal.photo.url.nil?
+        = image_tag "http://via.placeholder.com/400x200", title: meal.title, class: 'meal-picture'
+      - else
+        = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
     .field
       .file.meal_photo
         label.file-label for="meal_photo"
-          input.file-input name="meal[photo]" id="meal_photo" type="file"
+          input.file-input name="meal[photo]" id="meal_photo" type="file" accept=".jpg, .jpeg, .png"
           span.file-cta
             span.file-icon
               i.fas.fa-upload
@@ -24,7 +25,8 @@
                 | Ajouter une photo
               - else
                 | Modifier la photo
-            span.file-name
+          span.file-name
+            | Pas de fichier sélectionné
 
     = meal_form.input :photo_cache, as: :hidden
 
