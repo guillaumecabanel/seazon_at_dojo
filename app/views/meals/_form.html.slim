@@ -1,4 +1,4 @@
-= simple_form_for meal do |meal_form|
+= simple_form_for meal, html: {enctype: "multipart/form-data"} do |meal_form|
   .box.box-with-footer
     = meal_form.input :title
     .field
@@ -16,7 +16,7 @@
     .field
       .file.meal_photo
         label.file-label for="meal_photo"
-          input.file-input name="meal[photo]" id="meal_photo" type="file" accept=".jpg, .jpeg, .png"
+          input.file-input name="meal[photo]" id="meal_photo" type="file"
           span.file-cta
             span.file-icon
               i.fas.fa-upload
