@@ -36,9 +36,14 @@ class ServingsController < ApplicationController
   end
 
   def destroy
-    @serving.destroy
-    flash[:notice] = helpers.t("activerecord.models.serving_destroyed")
-    redirect_to servings_path
+    if @serving.orders.any?
+      flash[:alert] = "Il n'est pas possible de supprimer un repas ayant déjà des commandes"
+      redirect_to servings_path
+    else
+      @serving.destroy
+      flash[:notice] = helpers.t("activerecord.models.serving_destroyed")
+      redirect_to servings_path
+    end
   end
 
   private

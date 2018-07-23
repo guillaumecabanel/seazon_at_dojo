@@ -1,0 +1,30 @@
+= simple_form_for order do |order_form|
+  = order_form.input :serving_id, as: :hidden, input_html: {value: serving.id}
+  .box.box-with-footer
+    .flexbox.flexbox-between
+      .flexbox-item
+        = serving.price
+        | €
+      .flexbox-item
+        span.tag.is-rounded.is-info
+          = pluralize(serving.remaining, 'plat disponible', plural: 'plats disponibles')
+    p.is-size-7.has-text-grey
+      | DLC
+      =< l(serving.best_before, format: "%d.%m.%Y")
+    - if serving.meal.photo.url.nil?
+      = image_tag "http://via.placeholder.com/400x200", title: serving.meal.title, class: 'meal-picture'
+    - else
+      = cl_image_tag serving.meal.photo, height: 200, width: 400, crop: :fill, title: serving.meal.title, class: 'meal-picture'
+    h2.title.is-5
+      = serving.meal.title
+    -if serving.meal.veggie
+      span.tag.is-success = t("activerecord.attributes.meal.veggie")
+
+  .box-footer
+    .flexbox.flexbox-between
+      .flexbox-item.flexbox-main-item
+      .field.is-grouped
+        .control
+          = link_to t("form.cancel"), servings_path, class: 'button is-text'
+        .control
+          = order_form.submit t("form.command"), class: 'button is-success'

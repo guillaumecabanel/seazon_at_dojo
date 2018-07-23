@@ -5,7 +5,7 @@ h1.title.is-1 = t("activerecord.models.servings")
 - if @servings.any?
   .columns.is-multiline.is-mobile
       - @servings.each do |serving|
-        .column.is-one-quarter
+        .column.is-one-quarter-desktop.is-half-tablet
           = render 'serving', serving: serving
 - else
   .notification = t("activerecord.models.no_servings")

@@ -220,6 +220,7 @@ fr:
     edit: Modifier
     delete: Supprimer
     cancel: Annuler
+    command: Commander
   activerecord:
     attributes:
       user:
@@ -228,7 +229,7 @@ fr:
         veggie: Végétarien
       serving:
         price: Prix
-        quantity: Nombre de repas disponibles
+        quantity: Nombre de repas proposé
         best_before: À consommer avant le
     models:
       user: Utilisateur
@@ -252,3 +253,13 @@ fr:
       edit_serving_success: Le repas a été modifié avec succès.
       edit_serving_errors: Une erreur s'est produite lors de la modification du repas, veuillez vérifier les champs.
       serving_destroyed: Le repas a bien été supprimé.
+      order: Commande
+      orders: Les commandes
+      no_orders: Il n'y pas de commande.
+      new_order: Ajouter une commande
+      edit_order: Modifier cette commande
+      new_order_success: La nouvelle commande a été créée avec succès.
+      new_order_errors: Une erreur s'est produite lors de la création de la commande, veuillez vérifier les champs.
+      edit_order_success: La commande a été modifiée avec succès.
+      edit_order_errors: Une erreur s'est produite lors de la modification de la commande, veuillez vérifier les champs.
+      order_destroyed: La commande a bien été supprimée.

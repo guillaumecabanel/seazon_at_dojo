@@ -5,6 +5,8 @@ class CreateServings < ActiveRecord::Migration[5.2]
       t.float :price
       t.integer :quantity
       t.references :meal, foreign_key: true
+
+      t.timestamps null: false
     end
   end
 end

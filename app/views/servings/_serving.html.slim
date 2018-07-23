@@ -3,8 +3,9 @@
     .flexbox-item
       = serving.price
       | €
-    h3.title.is-4
-      span.tag.is-rounded.is-info = serving.quantity
+    .flexbox-item
+      span.tag.is-rounded.is-info
+        = pluralize(serving.remaining, 'plat disponible', plural: 'plats disponibles')
   p.is-size-7.has-text-grey
     | DLC
     =< l(serving.best_before, format: "%d.%m.%Y")
@@ -16,13 +17,14 @@
     = serving.meal.title
   -if serving.meal.veggie
     span.tag.is-success = t("activerecord.attributes.meal.veggie")
-  h4.title.is-6
-
 
   .serving-footer
     .flexbox.flexbox-between
       .field.is-grouped
         .control
-          = link_to t("form.edit"), edit_serving_path(serving), class: 'button is-small is-info is-outlined'
+          = link_to t("form.command"), new_order_path(serving_id: serving.id), class: 'button is-small is-primary'
         .control
-          = link_to t("form.delete"), serving_path(serving), method: :delete, class: 'button is-small is-danger is-outlined'
+          = link_to t("form.edit"), edit_serving_path(serving), class: 'button is-small is-info is-outlined'
+        - if serving.orders.empty?
+          .control
+            = link_to t("form.delete"), serving_path(serving), method: :delete, class: 'button is-small is-danger is-outlined'
