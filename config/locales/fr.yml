@@ -228,7 +228,7 @@ fr:
         veggie: Végétarien
       serving:
         price: Prix
-        quantity: Quantité
+        quantity: Nombre de repas disponibles
         best_before: À consommer avant le
     models:
       user: Utilisateur

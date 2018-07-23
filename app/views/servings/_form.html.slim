@@ -1,8 +1,16 @@
 = simple_form_for serving do |serving_form|
   .box.box-with-footer
-    = serving_form.input :price
-    = serving_form.input :quantity
-    = serving_form.input :best_before
+    .columns.is-mobile
+      .column.is-one-quarter-desktop.is-one-quarter-tablet
+        = serving_form.input :price, as: :currency
+
+    .columns.is-mobile
+      .column.is-half-desktop.is-half-tablet
+        = serving_form.input :quantity
+
+    .columns.is-mobile
+      .column.is-half-desktop.is-half-tablet
+        = serving_form.input :best_before, as: :string, input_html: {class: "datepicker"}
 
   .box-footer
     .flexbox.flexbox-between

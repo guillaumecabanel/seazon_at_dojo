@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "bulma": "^0.7.1"
+    "bulma": "^0.7.1",
+    "flatpickr": "^4.5.1"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
