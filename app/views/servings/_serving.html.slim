@@ -1,12 +1,25 @@
 .serving
+  .flexbox.flexbox-between
+    .flexbox-item
+      = serving.price
+      | €
+    h3.title.is-4
+      span.tag.is-rounded.is-info = serving.quantity
+  p.is-size-7.has-text-grey
+    | DLC
+    =< l(serving.best_before, format: "%d.%m.%Y")
   - if serving.meal.photo.url.nil?
     = image_tag "http://via.placeholder.com/400x200", title: serving.meal.title, class: 'meal-picture'
   - else
     = cl_image_tag serving.meal.photo, height: 200, width: 400, crop: :fill, title: serving.meal.title, class: 'meal-picture'
-  h2.title.is-5 = serving.meal.title
+  h2.title.is-5
+    = serving.meal.title
   -if serving.meal.veggie
     span.tag.is-success = t("activerecord.attributes.meal.veggie")
-  .meal-footer
+  h4.title.is-6
+
+
+  .serving-footer
     .flexbox.flexbox-between
       .field.is-grouped
         .control

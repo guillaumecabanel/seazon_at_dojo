@@ -1,4 +1,7 @@
 class ServingsController < ApplicationController
+  before_action :set_serving, only: [:edit, :update, :destroy]
+  before_action :set_meals,   only: [:new, :edit, :update]
+
   def index
     @servings = Serving.all
   end
@@ -19,11 +22,41 @@ class ServingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @serving.update(serving_params)
+      flash[:notice] = helpers.t("activerecord.models.edit_serving_success")
+      redirect_to servings_path
+    else
+      flash.now[:alert] = helpers.t("activerecord.models.edit_serving_errors")
+      render :edit
+    end
+  end
+
+  def destroy
+    @serving.destroy
+    flash[:notice] = helpers.t("activerecord.models.serving_destroyed")
+    redirect_to servings_path
+  end
+
+  private
+
+  def set_serving
+    @serving = Serving.find(params[:id])
+  end
+
+  def set_meals
+    @meals = Meal.all
+  end
+
   def serving_params
     params.require(:serving).permit(
       :price,
       :quantity,
-      :best_before
+      :best_before,
+      :meal_id
     )
   end
 end

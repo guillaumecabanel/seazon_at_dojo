@@ -1,5 +1,8 @@
 = simple_form_for serving do |serving_form|
   .box.box-with-footer
+    label.label for="serving_meal" Plat
+    = serving_form.input :meal_id, collection: @meals, prompt: "Sélectionner un plat", label: false
+
     .columns.is-mobile
       .column.is-one-quarter-desktop.is-one-quarter-tablet
         = serving_form.input :price, as: :currency
