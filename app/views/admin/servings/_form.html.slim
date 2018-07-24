@@ -1,4 +1,4 @@
-= simple_form_for serving do |serving_form|
+= simple_form_for ['admin', serving] do |serving_form|
   .box.box-with-footer
     label.label for="serving_meal" Plat
     = serving_form.input :meal_id, collection: @meals, prompt: "Sélectionner un plat", label: false

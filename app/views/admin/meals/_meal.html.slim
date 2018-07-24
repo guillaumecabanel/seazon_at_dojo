@@ -10,6 +10,7 @@
     .flexbox.flexbox-between
       .field.is-grouped
         .control
-          = link_to t("form.edit"), edit_meal_path(meal), class: 'button is-small is-info is-outlined'
-        .control
-          = link_to t("form.delete"), meal_path(meal), method: :delete, class: 'button is-small is-danger is-outlined'
+          = link_to t("form.edit"), edit_admin_meal_path(meal), class: 'button is-small is-info is-outlined'
+        - if meal.servings.empty?
+          .control
+            = link_to t("form.delete"), admin_meal_path(meal), method: :delete, class: 'button is-small is-danger is-outlined'

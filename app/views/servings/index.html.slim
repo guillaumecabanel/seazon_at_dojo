@@ -1,6 +1,7 @@
 h1.title.is-1 = t("activerecord.models.servings")
 
-= link_to t("activerecord.models.new_serving"), new_serving_path, class: 'button is-success is-outlined'
+- if current_user.is_admin?
+  = link_to t("activerecord.models.new_serving"), new_admin_serving_path, class: 'button is-success is-outlined'
 
 - if @servings.any?
   .columns.is-multiline.is-mobile

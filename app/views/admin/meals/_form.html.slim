@@ -1,4 +1,4 @@
-= simple_form_for meal, html: {enctype: "multipart/form-data"} do |meal_form|
+= simple_form_for ['admin', meal], html: {enctype: "multipart/form-data"} do |meal_form|
   .box.box-with-footer
     = meal_form.input :title
     .field
@@ -35,7 +35,7 @@
       .flexbox-item.flexbox-main-item
       .field.is-grouped
         .control
-          = link_to t("form.cancel"), meals_path, class: 'button is-text'
+          = link_to t("form.cancel"), admin_meals_path, class: 'button is-text'
         .control
           - if meal.new_record?
             = meal_form.submit t("activerecord.models.new_meal"), class: 'button is-success'

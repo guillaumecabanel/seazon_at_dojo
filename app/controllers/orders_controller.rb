@@ -1,8 +1,4 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all.order(created_at: :desc)
-  end
-
   def new
     @serving = Serving.find(params[:serving_id])
     @order = Order.new
@@ -11,7 +7,6 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user = current_user
-
 
     if @order.save
       flash[:notice] = helpers.t("activerecord.models.new_order_success")
