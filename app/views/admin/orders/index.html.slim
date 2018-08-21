@@ -31,6 +31,7 @@ h1.title.is-1 = t("activerecord.models.orders")
               = button_to 'Annuler le paiement', admin_payment_path(order), method: :delete, class: 'button is-small is-danger is-outlined'
             - else
               = button_to 'Marquer comme payé', admin_payments_path(order_id: order.id), class: 'button is-small is-info is-outlined'
-
+  .kaminari-pagination
+    = paginate @orders
 - else
   .notification = t("activerecord.models.no_orders")

@@ -9,6 +9,7 @@ gem 'rails', '5.2.0'
 gem 'redis'
 gem 'devise'
 gem 'devise-i18n'
+gem 'kaminari'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'

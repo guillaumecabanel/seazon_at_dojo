@@ -23,5 +23,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
               span.tag.is-info Payé
             - else
               span.tag.is-warning Non payé
+  .kaminari-pagination
+    = paginate @orders
 - else
   .notification = t("activerecord.models.no_orders")

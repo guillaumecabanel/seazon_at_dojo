@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.where(user: current_user).order(created_at: :desc)
+    @orders = Order.where(user: current_user).order(created_at: :desc).page(params[:page]).per(25)
   end
 
   def new
