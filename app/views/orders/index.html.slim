@@ -15,7 +15,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
           td = order.serving.meal.title
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
-            = order.serving.price
+            = order.serving.price.round(0)
             | €
           td = l(order.created_at, format: :short)
           td
