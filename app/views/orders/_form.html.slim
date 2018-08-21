@@ -1,10 +1,13 @@
-= simple_form_for order do |order_form|
+= simple_form_for [serving, order] do |order_form|
   = order_form.input :serving_id, as: :hidden, input_html: {value: serving.id}
   .box.box-with-footer
     .flexbox.flexbox-between
       .flexbox-item
-        = serving.price
+        = serving.price.round(0)
         | €
+        span.has-text-grey<
+          = (serving.price * 1.055).round(2)
+          | € si besoin d'une note de frais
       .flexbox-item
         span.tag.is-rounded.is-info
           = pluralize(serving.remaining, 'plat disponible', plural: 'plats disponibles')

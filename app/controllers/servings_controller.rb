@@ -3,7 +3,7 @@ class ServingsController < ApplicationController
     if current_user.is_admin?
       @servings = Serving.all
     else
-      @servings = Serving.orderable
+      @servings = Serving.orderable.order(:best_before)
     end
   end
 end

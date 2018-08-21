@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root controller: :pages, action: :home
+  root controller: :servings, action: :index
 
   namespace :admin do
     resources :meals,    only: [:index, :new, :create, :edit, :update, :destroy]
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :servings, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :servings, only: [:index]
-  resources :orders,   only: [:new, :create]
+  resources :servings, only: [:index] do
+    resources :orders,   only: [:new, :create]
+  end
 end

@@ -12,7 +12,7 @@
           = pluralize(serving.remaining, 'plat disponible', plural: 'plats disponibles')
       - else
         span.tag.is-rounded.is-danger Indisponible
-  p.is-size-7.has-text-grey
+  p.is-size-7 class=(serving.best_before >= Date.today + 1.day ? 'has-text-grey' : 'has-text-danger has-text-weight-bold')
     | DLC
     =< l(serving.best_before, format: "%d.%m.%Y")
   - if serving.meal.photo.url.nil?
@@ -28,7 +28,7 @@
     .flexbox.flexbox-end
       .field.is-grouped
         .control
-          = link_to t("form.command"), new_order_path(serving_id: serving.id), class: 'button is-primary'
+          = link_to t("form.yummy"), new_serving_order_path(serving), class: 'button is-primary'
     - if current_user.is_admin?
       br
       .field.is-grouped
