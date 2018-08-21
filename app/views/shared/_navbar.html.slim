@@ -4,7 +4,7 @@ nav.navbar role="navigation" aria-label="main navigation"
 
     a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="nav-menu"
       span aria-hidden="true"
-      - unless current_user.debt.zero?
+      - unless current_user.nil? || current_user.debt.zero?
         .bullet-warning
       span aria-hidden="true"
       span aria-hidden="true"
