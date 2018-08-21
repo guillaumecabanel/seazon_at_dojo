@@ -227,6 +227,8 @@ fr:
       user:
       meal:
         title: Titre
+        ingredients: Ingrédients
+        allergens: Allergènes
         veggie: Végétarien
       serving:
         price: Prix

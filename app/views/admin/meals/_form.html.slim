@@ -1,6 +1,8 @@
 = simple_form_for ['admin', meal], html: {enctype: "multipart/form-data"} do |meal_form|
   .box.box-with-footer
     = meal_form.input :title
+    = meal_form.input :ingredients
+    = meal_form.input :allergens
     .field
       label.checkbox
         input value="false" name="meal[veggie]" type="hidden"

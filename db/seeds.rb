@@ -16,6 +16,8 @@ print 'Create meals.........'
 10.times do
   Meal.create!(
     title: Faker::Food.dish,
+    ingredients: Faker::Food.description,
+    allergens: ''
   )
 end
 puts 'OK'

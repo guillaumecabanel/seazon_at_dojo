@@ -53,7 +53,7 @@ module Admin
     end
 
     def meal_params
-      params.require(:meal).permit(:title, :photo, :veggie)
+      params.require(:meal).permit(:title, :photo, :veggie, :ingredients, :allergens)
     end
   end
 end
