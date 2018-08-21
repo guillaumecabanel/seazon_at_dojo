@@ -221,7 +221,7 @@ fr:
     delete: Supprimer
     cancel: Annuler
     command: Commander
-    yummy: Miam !
+    yummy: 😋 Miam !
   activerecord:
     attributes:
       user:
