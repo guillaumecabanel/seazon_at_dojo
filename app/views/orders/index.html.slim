@@ -1,20 +1,17 @@
-h1.title.is-1 = t("activerecord.models.orders")
+h1.title.is-1 = t("activerecord.models.my_orders")
 
 - if @orders.any?
   table.table.is-striped.is-fullwidth
     thead
       tr
-        th Coloc
         th Plat
         th DLC
         th prix
         th Commandé le
         th Paiement
-        th Action
     tbody
       - @orders.each do |order|
         tr
-          td = order.user.email
           td = order.serving.meal.title
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
@@ -26,11 +23,5 @@ h1.title.is-1 = t("activerecord.models.orders")
               span.tag.is-info Payé
             - else
               span.tag.is-warning Non payé
-          td
-            - if order.paid_at
-              = button_to 'Annuler le paiement', payment_path(order), method: :delete, class: 'button is-small is-danger is-outlined'
-            - else
-              = button_to 'Marquer comme payé', payments_path(order_id: order.id), class: 'button is-small is-info is-outlined'
-
 - else
   .notification = t("activerecord.models.no_orders")

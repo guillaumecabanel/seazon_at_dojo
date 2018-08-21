@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = Order.where(user: current_user)
+  end
+
   def new
     @serving = Serving.find(params[:serving_id])
     @order = Order.new

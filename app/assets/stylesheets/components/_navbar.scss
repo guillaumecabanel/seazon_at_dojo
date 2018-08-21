@@ -1,0 +1,24 @@
+.navbar {
+  .navbar-item-active {
+    border-bottom: 4px solid hsl(217, 71%, 53%);
+    padding-bottom: 4px;
+  }
+  .notification.navbar-notification {
+    margin: 8px auto;
+    padding-top: 8px;
+    height: 38px;
+  }
+  .navbar-burger {
+    .bullet-warning {
+      position: relative;
+      display: inline-block;
+      top: 8px;
+      right: -24px;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background-color: hsl(48, 100%, 67%);
+      z-index: 2;
+    }
+  }
+}

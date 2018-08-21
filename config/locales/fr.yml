@@ -258,6 +258,7 @@ fr:
       serving_destroyed: Le repas a bien été supprimé.
       order: Commande
       orders: Les commandes
+      my_orders: Mes commandes
       no_orders: Il n'y pas de commande.
       new_order: Ajouter une commande
       edit_order: Modifier cette commande

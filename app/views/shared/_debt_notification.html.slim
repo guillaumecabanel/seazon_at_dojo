@@ -1,0 +1,6 @@
+| Pense à payer
+=< current_user.debt.round(0)
+| € (
+=  (current_user.debt.* 1.055).round(2)
+| € si notes de frais) par Lydia au
+span.has-text-weight-bold=<> ENV['LYDIA_PHONE_NUMBER']

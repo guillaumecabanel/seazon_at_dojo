@@ -4,6 +4,8 @@ nav.navbar role="navigation" aria-label="main navigation"
 
     a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="nav-menu"
       span aria-hidden="true"
+      - unless current_user.debt.zero?
+        .bullet-warning
       span aria-hidden="true"
       span aria-hidden="true"
 
@@ -11,12 +13,20 @@ nav.navbar role="navigation" aria-label="main navigation"
     .navbar-start
       - if current_user
         - if current_user.is_admin?
-          = link_to t("activerecord.models.meals"),  admin_meals_path,  class: 'navbar-item'
-          = link_to t("activerecord.models.orders"), admin_orders_path, class: 'navbar-item'
+          = link_to t("activerecord.models.meals"),  admin_meals_path,  class: "navbar-item #{'navbar-item-active' if current_page?(admin_meals_path)}"
+          = link_to t("activerecord.models.orders"), admin_orders_path, class: "navbar-item #{'navbar-item-active' if current_page?(admin_orders_path)}"
 
-        = link_to t("activerecord.models.servings"), servings_path, class: 'navbar-item'
+        = link_to t("activerecord.models.servings"),  servings_path, class: "navbar-item #{'navbar-item-active' if current_page?(servings_path) || current_page?(root_path)}"
+        = link_to t("activerecord.models.my_orders"), orders_path,   class: "navbar-item #{'navbar-item-active' if current_page?(orders_path)}"
+
     .navbar-end
       - if current_user
+        - unless current_user.debt.zero?
+          .navbar-notifications
+            .notification.navbar-notification.is-warning.is-hidden-touch
+              = render 'shared/debt_notification'
+            .notification.is-warning.is-hidden-desktop
+              = render 'shared/debt_notification'
         - if current_user.is_admin?
           .navbar-item
             span.tag.is-danger Admin

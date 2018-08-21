@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def is_admin?
     admin
   end
+
+  def debt
+    orders.joins(:serving).where(paid_at: nil).sum(:price)
+  end
 end

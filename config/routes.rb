@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :servings, only: [:index] do
-    resources :orders,   only: [:new, :create]
+    resources :orders, only: [:new, :create]
   end
+
+  resources :orders, only: [:index]
 end
