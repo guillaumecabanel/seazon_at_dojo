@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :orders
 
+  validates :slack_name, presence: true
+
   def is_admin?
     admin
   end

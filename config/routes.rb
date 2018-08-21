@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:index]
+
+  resource :profile, only: [:edit, :update]
 end
