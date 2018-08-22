@@ -11,7 +11,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'kaminari'
-
+gem 'postmark-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
