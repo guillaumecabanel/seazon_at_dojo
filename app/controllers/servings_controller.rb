@@ -1,9 +1,7 @@
 class ServingsController < ApplicationController
   def index
-    if current_user.is_admin?
-      @servings = Serving.all
-    else
-      @servings = Serving.orderable.order(:best_before)
-    end
+    @servings             = Serving.orderable.order(:best_before)
+    @out_of_date_servings = Serving.out_of_date
+    @sold_out_servings    = Serving.sold_out
   end
 end

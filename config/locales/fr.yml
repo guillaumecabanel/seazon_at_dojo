@@ -248,7 +248,11 @@ fr:
       meal_destroyed: Le plat a bien été supprimé.
       serving: Repas
       servings: Les repas
-      no_servings: Il n'y pas de repas.
+      out_of_date_servings: Les repas périmés
+      sold_out_servings: Les repas plus disponible
+      no_servings: Il n'est pas possible de commander des repas.
+      no_out_of_date_servings: Il n'y a pas de repas périmé.
+      no_sold_out_servings: Il n'y a pas de repas plus disponible.
       new_serving: Ajouter un repas
       edit_serving: Modifier ce repas
       new_serving_success: Le nouveau repas a été créé avec succès.

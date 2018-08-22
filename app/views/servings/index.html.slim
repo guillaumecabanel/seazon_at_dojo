@@ -10,3 +10,22 @@ h1.title.is-1 = t("activerecord.models.servings")
           = render 'serving', serving: serving
 - else
   .notification = t("activerecord.models.no_servings")
+
+- if current_user.admin?
+  - if @out_of_date_servings.any?
+    h2.title.is-3 = t("activerecord.models.out_of_date_servings")
+    .columns.is-multiline.is-mobile
+        - @out_of_date_servings.each do |serving|
+          .column.is-one-quarter-desktop.is-half-tablet
+            = render 'serving', serving: serving
+  - else
+    .notification = t("activerecord.models.no_out_of_date_servings")
+
+  - if @sold_out_servings.any?
+    h2.title.is-3 = t("activerecord.models.sold_out_servings")
+    .columns.is-multiline.is-mobile
+        - @sold_out_servings.each do |serving|
+          .column.is-one-quarter-desktop.is-half-tablet
+            = render 'serving', serving: serving
+  - else
+    .notification = t("activerecord.models.no_sold_out_servings")

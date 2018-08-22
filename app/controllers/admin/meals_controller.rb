@@ -3,7 +3,7 @@ module Admin
     before_action :set_meal, only: [:edit, :update, :destroy]
 
     def index
-      @meals = Meal.all
+      @meals = Meal.order(:title)
     end
 
     def new
