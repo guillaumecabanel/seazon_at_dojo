@@ -5,6 +5,11 @@
 
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .box.box-with-footer
+          .flexbox.flexbox-center
+            = link_to ENV['SLACK_SIGN_IN_URL'], class: 'button is-info is-large' do
+              i.fab.fa-slack.fa-2x
+              | &nbsp; Se connecter avec Slack
+          hr
           = f.input :email, autofocus: true
           = f.input :password
           - if devise_mapping.rememberable?
