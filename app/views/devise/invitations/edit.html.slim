@@ -1,0 +1,20 @@
+.container
+  .columns
+    .column.is-half-desktop.is-offset-3-desktop
+      h2.title = t 'devise.invitations.edit.header'
+
+      = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
+        = devise_error_messages!
+        = f.hidden_field :invitation_token
+
+        .box.box-with-footer
+          = f.input :password, label: t(".password"), required: true, autofocus: true, hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length)
+          = f.input :password_confirmation, label: t(".confirm_new_password"), required: true
+        .box-footer
+          .flexbox.flexbox-between
+            .flexbox-item.flexbox-main-item
+            .field.is-grouped
+              .control
+                = f.submit t("devise.invitations.edit.submit_button"), class: 'button is-link'
+
+      = render "devise/shared/links"
