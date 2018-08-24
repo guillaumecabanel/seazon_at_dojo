@@ -7,3 +7,16 @@ h1.title.is-1 = t("statistics")
         h2.title.is-3 = t('activerecord.models.orders')
     .card-content
       #orders-chart data-orders=(@orders_data)
+      article.message.is-info
+        .message-body
+          => t('misc.orders', count: @orders_count)
+          - if @end_date.today?
+            | depuis
+            =< distance_of_time_in_words(@begin_date.beginning_of_day, @end_date.end_of_day)
+          - else
+            | sur
+            =<> distance_of_time_in_words(@begin_date.beginning_of_day, @end_date.end_of_day)
+            | entre le
+            =<> l(@begin_date, format: "%d.%m.%Y")
+            | et le
+            =< l(@end_date, format: "%d.%m.%Y")
