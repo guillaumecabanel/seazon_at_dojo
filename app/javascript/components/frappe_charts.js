@@ -5,12 +5,7 @@ import 'frappe-charts/dist/frappe-charts.min.css';
 function ordersChart() {
   const ordersChartDiv = document.getElementById('orders-chart');
 
-  const data = {
-    labels: ordersChartDiv.dataset.lastDays.split(","),
-    datasets: [
-        { values: ordersChartDiv.dataset.ordersCountByDay.split(",").map(Number) }
-    ]
-  }
+  const data = JSON.parse(ordersChartDiv.dataset.orders)
 
   const chart = new Chart(ordersChartDiv, {
     data: data,
