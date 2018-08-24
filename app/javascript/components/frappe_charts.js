@@ -1,30 +1,30 @@
 // import { Chart } from "frappe-charts"; not working see https://github.com/frappe/charts/issues/155
 import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
+import 'frappe-charts/dist/frappe-charts.min.css';
 
-function ordersChart(frappeChartsDiv) {
+function ordersChart() {
+  const ordersChartDiv = document.getElementById('orders-chart');
+
   const data = {
-    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    labels: ordersChartDiv.dataset.lastDays.split(","),
     datasets: [
-        { values: [18, 40, 30, 35, 8, 52, 17, -4] }
+        { values: ordersChartDiv.dataset.ordersCountByDay.split(",").map(Number) }
     ]
   }
 
-  frappeChartsDiv.insertAdjacentHTML('beforeend', '<div id="orders-chart"></div>');
-
-  const chart = new Chart("#orders-chart", {
+  const chart = new Chart(ordersChartDiv, {
     data: data,
     type: 'bar',
     height: 140,
-    colors: ['blue']
   });
 }
 
-function loadCharts(frappeChartsDiv) {
-  ordersChart(frappeChartsDiv);
+function loadCharts() {
+  ordersChart();
 }
 
 const frappeChartsDiv = document.getElementById('frappe-charts');
 
 if (frappeChartsDiv) {
-  loadCharts(frappeChartsDiv);
+  loadCharts();
 }
