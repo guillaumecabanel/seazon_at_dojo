@@ -16,13 +16,13 @@ gem 'postmark-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'rest-client'
-
 gem 'slim-rails'
 gem 'autoprefixer-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'bugsnag'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
