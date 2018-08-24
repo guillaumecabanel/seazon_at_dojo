@@ -237,7 +237,7 @@ fr:
     models:
       user: Utilisateur
       meal: Plat
-      meals: Les plats
+      meals: 🍝 Les plats
       no_meals: Il n'y pas de plat.
       new_meal: Ajouter un plat
       edit_meal: Modifier ce plat
@@ -247,7 +247,7 @@ fr:
       edit_meal_errors: Une erreur s'est produite lors de la modification du plat, veuillez vérifier les champs.
       meal_destroyed: Le plat a bien été supprimé.
       serving: Repas
-      servings: Les repas
+      servings: 🍱 Les repas
       out_of_date_servings: Les repas périmés
       sold_out_servings: Les repas plus disponible
       no_servings: Il n'est pas possible de commander des repas.
@@ -261,8 +261,8 @@ fr:
       edit_serving_errors: Une erreur s'est produite lors de la modification du repas, veuillez vérifier les champs.
       serving_destroyed: Le repas a bien été supprimé.
       order: Commande
-      orders: Les commandes
-      my_orders: Mes commandes
+      orders: 🤑 Les commandes
+      my_orders: ☑ Mes commandes
       no_orders: Il n'y pas de commande.
       new_order: Ajouter une commande
       edit_order: Modifier cette commande
@@ -271,3 +271,4 @@ fr:
       edit_order_success: La commande a été modifiée avec succès.
       edit_order_errors: Une erreur s'est produite lors de la modification de la commande, veuillez vérifier les champs.
       order_destroyed: La commande a bien été supprimée.
+  statistics: 📈 Statistiques

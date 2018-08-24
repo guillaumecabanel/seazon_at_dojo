@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :meals,    only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :payments, only: [:create, :destroy], param: :order_id
     resources :orders,   only: [:index]
+    resources :payments, only: [:create, :destroy], param: :order_id
     resources :servings, only: [:new, :create, :edit, :update, :destroy]
+    resource :statistics, only: [:show]
   end
 
   resources :servings, only: [:index] do
