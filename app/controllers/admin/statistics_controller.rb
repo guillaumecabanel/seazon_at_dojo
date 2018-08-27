@@ -1,8 +1,8 @@
 module Admin
   class StatisticsController < Admin::BaseController
     def show
-      @begin_date   = params[:begin_date] ? Date.parse(params[:begin_date]) : Date.today - 14.days
-      @end_date     = params[:end_date]   ? Date.parse(params[:end_date])   : Date.today
+      @begin_date   = params[:begin_date] &&  !params[:begin_date].empty? ? Date.parse(params[:begin_date]) : Date.today - 14.days
+      @end_date     = params[:end_date]   &&  !params[:end_date].empty?   ? Date.parse(params[:end_date])   : Date.today
       @orders       = Order.where(created_at: @begin_date.beginning_of_day..@end_date.end_of_day)
       @orders_count = @orders.count
 
