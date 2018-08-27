@@ -237,29 +237,29 @@ fr:
     models:
       user: Utilisateur
       meal: Plat
-      meals: 🍝 Les plats
-      no_meals: Il n'y pas de plat.
-      new_meal: Ajouter un plat
-      edit_meal: Modifier ce plat
-      new_meal_success: Le nouveau plat a été créé avec succès.
-      new_meal_errors: Une erreur s'est produite lors de la création du plat, veuillez vérifier les champs.
-      edit_meal_success: Le plat a été modifié avec succès.
-      edit_meal_errors: Une erreur s'est produite lors de la modification du plat, veuillez vérifier les champs.
-      meal_destroyed: Le plat a bien été supprimé.
-      serving: Repas
-      servings: 🍱 Les repas
-      out_of_date_servings: Les repas périmés
-      sold_out_servings: Les repas plus disponible
-      no_servings: Il n'est pas possible de commander des repas.
-      no_out_of_date_servings: Il n'y a pas de repas périmé.
-      no_sold_out_servings: Il n'y a pas de repas plus disponible.
-      new_serving: Ajouter un repas
-      edit_serving: Modifier ce repas
-      new_serving_success: Le nouveau repas a été créé avec succès.
-      new_serving_errors: Une erreur s'est produite lors de la création du repas, veuillez vérifier les champs.
-      edit_serving_success: Le repas a été modifié avec succès.
-      edit_serving_errors: Une erreur s'est produite lors de la modification du repas, veuillez vérifier les champs.
-      serving_destroyed: Le repas a bien été supprimé.
+      meals: 🍝 Les menus
+      no_meals: Il n'y pas de menu.
+      new_meal: Ajouter un menu
+      edit_meal: Modifier ce menu
+      new_meal_success: Le nouveau menu a été créé avec succès.
+      new_meal_errors: Une erreur s'est produite lors de la création du menu, veuillez vérifier les champs.
+      edit_meal_success: Le menu a été modifié avec succès.
+      edit_meal_errors: Une erreur s'est produite lors de la modification du menu, veuillez vérifier les champs.
+      meal_destroyed: Le menu a bien été supprimé.
+      serving: P'tit plat
+      servings: 🍱 Les p'tit plats
+      out_of_date_servings: Les p'tit plats périmés
+      sold_out_servings: Les p'tit plats plus disponibles
+      no_servings: 😱 Il n'est pas possible de commander de p'tit plats pour l'instant.
+      no_out_of_date_servings: Il n'y a pas de p'tit plat périmé.
+      no_sold_out_servings: Il n'y a pas de p'tit plat non disponible.
+      new_serving: Ajouter un p'tit plat
+      edit_serving: Modifier ce p'tit plat
+      new_serving_success: Le nouveau p'tit plat a été créé avec succès.
+      new_serving_errors: Une erreur s'est produite lors de la création du p'tit plat, veuillez vérifier les champs.
+      edit_serving_success: Le p'tit plat a été modifié avec succès.
+      edit_serving_errors: Une erreur s'est produite lors de la modification du p'tit plat, veuillez vérifier les champs.
+      serving_destroyed: Le p'tit plat a bien été supprimé.
       order: Commande
       orders: 🤑 Les commandes
       my_orders: ☑ Mes commandes
