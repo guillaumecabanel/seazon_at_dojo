@@ -7,7 +7,7 @@ h1.title.is-1 = t("statistics")
         h2.title.is-3 = t('activerecord.models.orders')
     .card-content
       #orders-by-day-chart data-json=(@orders_by_day_data)
-      / #orders-payments-chart data-json=(@orders_payments_data)
+      #orders-payments-chart data-json=(@orders_payments_data)
       article.message.is-info
         .message-body
           = title_for_orders_by_day

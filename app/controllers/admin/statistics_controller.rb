@@ -6,6 +6,24 @@ module Admin
       @orders       = Order.where(created_at: @begin_date.beginning_of_day..@end_date.end_of_day)
       @orders_count = @orders.count
 
+      set_orders_by_day_data
+      paid_orders = @orders.where.not(paid_at: nil).count
+      unpaid_orders = @orders.where(paid_at: nil).count
+
+      @orders_payments_data = {
+        labels: ["Payées", "Non payées"],
+        datasets: [{
+          values: [paid_orders, unpaid_orders]
+        }]
+      }.to_json
+
+    end
+
+
+
+    private
+
+    def set_orders_by_day_data
       last_days_array = (@begin_date..@end_date).map do |day|
         helpers.l(day, format: "%a %d")
       end
