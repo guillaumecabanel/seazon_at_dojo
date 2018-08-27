@@ -8,8 +8,8 @@ module Admin
       @orders_count = @orders.count
 
       set_orders_by_day_data
-      paid_orders = @orders.where.not(paid_at: nil).count
-      unpaid_orders = @orders.where(paid_at: nil).count
+      paid_orders   = @orders.paid.count
+      unpaid_orders = @orders.not_paid.count
 
       @orders_payments_data = {
         labels: ["Payées", "Non payées"],
