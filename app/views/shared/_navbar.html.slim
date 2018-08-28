@@ -37,7 +37,7 @@ nav.navbar.is-fixed-top role="navigation" aria-label="main navigation"
         - if current_user.is_admin?
           .navbar-item
             span.tag.is-danger Admin
-        .navbar-item = current_user.slack_name
+        .navbar-item = link_to current_user.slack_name, edit_profile_path
         .navbar-item
           = link_to destroy_user_session_path, method: :delete, class: 'button is-warning is-outlined' do
             = t("devise.shared.links.sign_out")
