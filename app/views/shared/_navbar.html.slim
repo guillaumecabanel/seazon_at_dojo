@@ -29,10 +29,11 @@ nav.navbar.is-fixed-top role="navigation" aria-label="main navigation"
       - if current_user
         - unless current_user.debt.zero?
           .navbar-notifications
-            .notification.navbar-notification.is-warning.is-hidden-touch
-              = render 'shared/debt_notification'
-            .notification.is-warning.is-hidden-desktop
-              = render 'shared/debt_notification'
+            = link_to orders_path do
+              .notification.navbar-notification.is-warning.is-hidden-touch
+                = render 'shared/debt_notification'
+              .notification.is-warning.is-hidden-desktop
+                = render 'shared/debt_notification'
         - if current_user.is_admin?
           .navbar-item
             span.tag.is-danger Admin
