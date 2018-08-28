@@ -2,16 +2,17 @@ h1.title.is-1 = t("statistics")
 
 .columns
   .column.is-one-quarter
-    = form_tag admin_statistics_path, method: :get, id: 'form-range' do
-      #range-values data-begin-date=(@begin_date) data-end-date=(@end_date)
-      = hidden_field_tag :begin_date
-      = hidden_field_tag :end_date
+
 
       .field.has-addons
         .control
         input#range.input.datepicker-range name="range" type="date" value=("#{l(@begin_date, format: "%d.%m.%Y")} au #{l(@end_date, format: "%d.%m.%Y")}")
         .control
-          = submit_tag "Filtrer", class: 'button is-success'
+          = form_tag admin_statistics_path, method: :get, id: 'form-range' do
+            #range-values data-begin-date=(@begin_date) data-end-date=(@end_date)
+            = hidden_field_tag :begin_date
+            = hidden_field_tag :end_date
+            = submit_tag "Filtrer", class: 'button is-success'
 
 #frappe-charts
   .card

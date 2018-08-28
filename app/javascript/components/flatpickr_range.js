@@ -1,22 +1,17 @@
-function bindSubmitForm(rangeInput) {
-  rangeInput.addEventListener('change', (event) => {
-    const range = document.getElementById('range').value;
-    const beginDate = range.match(/^\d{4}-\d{2}-\d{2}/)[0];
-    const endDate = range.match(/\d{4}-\d{2}-\d{2}$/)[0];
+function setDateInputs(dateStr) {
+  const beginDate = dateStr.match(/^\d{4}-\d{2}-\d{2}/)[0];
+  const endDate = dateStr.match(/\d{4}-\d{2}-\d{2}$/)[0];
 
-    const beginDateInput = document.getElementById('begin_date');
-    const endDateInput = document.getElementById('end_date');
+  const beginDateInput = document.getElementById('begin_date');
+  const endDateInput = document.getElementById('end_date');
 
-    beginDateInput.value = beginDate;
-    endDateInput.value = endDate;
-  })
+  beginDateInput.value = beginDate;
+  endDateInput.value = endDate;
 }
 
 const rangeInput = document.getElementById('range');
 
 if (rangeInput) {
-  bindSubmitForm(rangeInput);
-
   const rangeValues = document.getElementById('range-values');
   const beginDate= rangeValues.dataset.beginDate
   const endDate= rangeValues.dataset.endDate
@@ -27,5 +22,8 @@ if (rangeInput) {
     mode: "range",
     defaultDate: [beginDate, endDate],
     altFormat: 'd.m.Y', // avalaible format: https://flatpickr.js.org/formatting
+    onClose: function(selectedDates, dateStr, instance){
+       setDateInputs(dateStr)
+    }
   });
 }
