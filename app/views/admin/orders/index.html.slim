@@ -14,7 +14,7 @@ h1.title.is-1 = t("activerecord.models.orders")
     tbody
       - @orders.each do |order|
         tr
-          td = order.user.email
+          td = order.user.slack_name
           td = order.serving.meal.title
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
