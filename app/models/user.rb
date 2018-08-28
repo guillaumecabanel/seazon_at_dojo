@@ -22,6 +22,6 @@ class User < ApplicationRecord
   end
 
   def debt
-    orders.joins(:serving).where(paid_at: nil).sum(:price)
+    orders.joins(:serving).not_paid.sum(:price)
   end
 end

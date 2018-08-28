@@ -1,9 +1,25 @@
 h1.title.is-1 = t("statistics")
 
+.columns
+  .column.is-one-quarter
+    .field.has-addons
+      .control
+      input#range.input.datepicker-range name="range" type="date" value=("#{l(@begin_date, format: "%d.%m.%Y")} au #{l(@end_date, format: "%d.%m.%Y")}")
+      .control
+        = form_tag admin_statistics_path, method: :get, id: 'form-range' do
+          #range-values data-begin-date=(@begin_date) data-end-date=(@end_date)
+          = hidden_field_tag :begin_date
+          = hidden_field_tag :end_date
+          = submit_tag "Filtrer", class: 'button is-success'
+
 #frappe-charts
   .card
     .card-header
       .card-header-title
         h2.title.is-3 = t('activerecord.models.orders')
     .card-content
-      #orders-chart data-last-days=(@last_days) data-orders-count-by-day=(@orders_count_by_day)
+      #orders-by-day-chart data-json=(@orders_by_day_data)
+      #orders-payments-chart data-json=(@orders_payments_data)
+      article.message.is-info
+        .message-body
+          = title_for_orders_by_day(@begin_date, @end_date, @orders_count)
