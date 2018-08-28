@@ -9,7 +9,10 @@ h1.title.is-1 = t("activerecord.models.servings")
         .column.is-one-quarter-desktop.is-half-tablet
           = render 'serving', serving: serving
 - else
-  .notification = t("activerecord.models.no_servings")
+  .message.is-info
+    .message-body
+      | ℹ
+      =< t("activerecord.models.no_servings")
 
 - if current_user.admin?
   - if @out_of_date_servings.any?
@@ -19,7 +22,10 @@ h1.title.is-1 = t("activerecord.models.servings")
           .column.is-one-quarter-desktop.is-half-tablet
             = render 'serving', serving: serving
   - else
-    .notification = t("activerecord.models.no_out_of_date_servings")
+    .message.is-info
+      .message-body
+        | ℹ
+        =< t("activerecord.models.no_out_of_date_servings")
 
   - if @sold_out_servings.any?
     h2.title.is-3 = t("activerecord.models.sold_out_servings")
@@ -28,4 +34,7 @@ h1.title.is-1 = t("activerecord.models.servings")
           .column.is-one-quarter-desktop.is-half-tablet
             = render 'serving', serving: serving
   - else
-    .notification = t("activerecord.models.no_sold_out_servings")
+    .message.is-info
+      .message-body
+        | ℹ
+        =< t("activerecord.models.no_sold_out_servings")

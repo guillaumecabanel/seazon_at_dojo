@@ -5,7 +5,10 @@ h1.title.is-1 = t("activerecord.models.meals")
 - if @meals.any?
   .columns.is-multiline.is-mobile
       - @meals.each do |meal|
-        .column.is-one-quarter
+        .column.is-one-quarter-desktop.is-half-tablet
           = render 'meal', meal: meal
 - else
-  .notification = t("activerecord.models.no_meals")
+  .message.is-info
+    .message-body
+      | ℹ
+      =< t("activerecord.models.no_meals")

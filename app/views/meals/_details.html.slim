@@ -3,6 +3,8 @@
 - else
   = cl_image_tag meal.photo, height: 200, width: 400, crop: :fill, title: meal.title, class: 'meal-picture'
 h2.title.is-5 = meal.title
+- if meal.veggie
+  span.tag.is-success.veggie-tag = t("activerecord.attributes.meal.veggie")
 p = meal.ingredients.try(:capitalize)
 - unless meal.allergens.empty?
   br
@@ -10,5 +12,3 @@ p = meal.ingredients.try(:capitalize)
     span.has-text-weight-semibold> = t("activerecord.attributes.meal.allergens")
     | :
     =< meal.allergens
--if meal.veggie
-  span.tag.is-success = t("activerecord.attributes.meal.veggie")
