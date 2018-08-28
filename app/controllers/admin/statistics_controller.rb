@@ -8,15 +8,7 @@ module Admin
       @orders_count = @orders.count
 
       set_orders_by_day_data
-      paid_orders   = @orders.paid.count
-      unpaid_orders = @orders.not_paid.count
-
-      @orders_payments_data = {
-        labels: ["Payées", "Non payées"],
-        datasets: [{
-          values: [paid_orders, unpaid_orders]
-        }]
-      }.to_json
+      set_orders_payments_data
     end
 
     private
@@ -41,6 +33,18 @@ module Admin
         datasets: [{
           name: "Commandes",
           values: orders_count_by_day
+        }]
+      }.to_json
+    end
+
+    def set_orders_payments_data
+      paid_orders   = @orders.paid.count
+      unpaid_orders = @orders.not_paid.count
+
+      @orders_payments_data = {
+        labels: ["Payées", "Non payées"],
+        datasets: [{
+          values: [paid_orders, unpaid_orders]
         }]
       }.to_json
     end
