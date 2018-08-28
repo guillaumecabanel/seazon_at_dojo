@@ -1,4 +1,6 @@
 .navbar {
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.15);
+
   .navbar-item-active {
     border-bottom: 4px solid hsl(217, 71%, 53%);
     padding-bottom: 4px;

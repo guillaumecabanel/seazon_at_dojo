@@ -35,4 +35,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
   .kaminari-pagination
     = paginate @orders
 - else
-  .notification = t("activerecord.models.no_orders")
+  .message.is-info
+    .message-body
+      | ℹ
+      =< t("activerecord.models.no_orders")

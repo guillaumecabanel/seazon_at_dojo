@@ -43,9 +43,3 @@ nav.navbar.is-fixed-top role="navigation" aria-label="main navigation"
             = t("devise.shared.links.sign_out")
             | &nbsp;
             i.fas.fa-sign-out-alt
-      - else
-        .navbar-item
-          = link_to new_user_session_path, class: 'button is-primary is-outlined' do
-            = t("devise.shared.links.sign_in")
-            | &nbsp;
-            i.fas.fa-sign-in-alt
