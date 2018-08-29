@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_133518) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "pro_expense"
+    t.boolean "pro_expense", default: false
     t.index ["serving_id"], name: "index_orders_on_serving_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

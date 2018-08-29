@@ -22,6 +22,14 @@ class User < ApplicationRecord
   end
 
   def debt
-    orders.joins(:serving).not_paid.sum(:price)
+    pro_debt + perso_debt
+  end
+
+  def pro_debt
+    orders.joins(:serving).not_paid.pro_expenses.sum(:price) * 1.055
+  end
+
+  def perso_debt
+    orders.joins(:serving).not_paid.perso_expenses.sum(:price)
   end
 end

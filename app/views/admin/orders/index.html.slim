@@ -8,6 +8,7 @@ h1.title.is-1 = t("activerecord.models.orders")
         th Plat
         th DLC
         th prix
+        th T.V.A 5.5%
         th Commandé le
         th Paiement
         th Action
@@ -18,8 +19,12 @@ h1.title.is-1 = t("activerecord.models.orders")
           td = order.serving.meal.title
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
-            = order.serving.price
+            - if order.pro_expense
+              = (order.serving.price * 1.055).round(2)
+            - else
+              = order.serving.price
             | €
+          td = order.pro_expense ? 'Oui' : 'Non'
           td = l(order.created_at, format: :short)
           td
             - if order.paid_at

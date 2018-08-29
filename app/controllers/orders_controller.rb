@@ -22,6 +22,12 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    @order = Order.find(params[:id])
+    @order.update(pro_expense: params[:pro_expense]) unless @order.paid_at
+    redirect_to orders_path
+  end
+
   private
 
   def order_params
