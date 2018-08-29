@@ -15,7 +15,7 @@ h1.title.is-1 Mon profil
         = simple_form_for @user, url: profile_path do |f|
           label.checkbox
             input value="false" name="user[pro_expenses]" type="hidden"
-            input type="checkbox" name="user[pro_expenses]" id="user_pro_expenses" value="true"
+            input value="true" type="checkbox" name="user[pro_expenses]" id="user_pro_expenses" checked=(@user.pro_expenses)
             span< Je souhaite pouvoir obtenir des factures et <strong>accepte de payer la T.V.A. de 5,5%.</strong>
 
           br

@@ -5,13 +5,13 @@ class OrdersController < ApplicationController
 
   def new
     @serving = Serving.find(params[:serving_id])
-    @order = Order.new
+    @order   = Order.new(pro_expense: current_user.pro_expenses)
   end
 
   def create
-    @order = Order.new
+    @order         = Order.new(order_params)
     @order.serving = Serving.find(params[:serving_id])
-    @order.user = current_user
+    @order.user    = current_user
 
     if @order.save
       flash[:notice] = helpers.t("activerecord.models.new_order_success")
@@ -20,5 +20,11 @@ class OrdersController < ApplicationController
       flash.now[:alert] = helpers.t("activerecord.models.new_order_errors")
       render :new
     end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:pro_expense)
   end
 end
