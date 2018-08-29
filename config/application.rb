@@ -8,8 +8,6 @@ Bundler.require(*Rails.groups)
 
 module SeazonAtDojo
   class Application < Rails::Application
-    config.time_zone = 'Paris'
-
     config.generators do |generate|
       generate.assets false
       generate.helper false
@@ -24,5 +22,6 @@ module SeazonAtDojo
     # the framework and any gems in your application.
 
     config.i18n.default_locale = :fr
+    config.time_zone = 'Paris'
   end
 end
