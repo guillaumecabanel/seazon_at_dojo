@@ -4,7 +4,7 @@ h1.title.is-1 = t("activerecord.models.servings")
   = link_to t("activerecord.models.new_serving"), new_admin_serving_path, class: 'button is-success is-outlined'
 
 - if @servings.any?
-  .columns.is-multiline.is-mobile
+  .columns.is-multiline.is-mobile.is-centered
       - @servings.each do |serving|
         .column.is-one-quarter-desktop.is-half-tablet
           = render 'serving', serving: serving
