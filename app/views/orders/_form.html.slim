@@ -6,8 +6,8 @@
         = serving.price.round(0)
         | €
         span.has-text-grey<
-          = (serving.price * 1.055).round(2)
-          | € si besoin d'une note de frais
+          = (serving.price * 1.055).round(1)
+          | 0 € si besoin d'une note de frais
       .flexbox-item
         span.tag.is-rounded.is-info
           = pluralize(serving.remaining, 'plat disponible', plural: 'plats disponibles')
