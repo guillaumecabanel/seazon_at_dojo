@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class PreferencesController < ApplicationController
   before_action :set_user, only: [:edit, :update]
 
   def edit
@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to edit_profile_path
+    redirect_to edit_preferences_path
   end
 
   private

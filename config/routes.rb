@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :update]
 
-  resource :profile, only: [:edit, :update]
+  resource :preferences, only: [:edit, :update]
 end

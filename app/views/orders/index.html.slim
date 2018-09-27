@@ -16,7 +16,10 @@ h1.title.is-1 = t("activerecord.models.my_orders")
         th prix
         th Commandé le
         th Paiement
-        th Note de frais
+        th
+          | Note de frais
+          =< link_to edit_preferences_path do
+            i.fas.fa-sliders-h
     tbody
       - @orders.each do |order|
         tr
