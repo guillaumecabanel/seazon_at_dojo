@@ -20,7 +20,7 @@ h1.title.is-1 = t("activerecord.models.orders")
         th prix
         th Commandé le
         th Paiement
-        th Action
+        th
     tbody
       - @orders.each do |order|
         tr
@@ -38,9 +38,14 @@ h1.title.is-1 = t("activerecord.models.orders")
               span.tag.is-warning Non payé
           td
             - if order.paid_at
-              = button_to 'Annuler le paiement', admin_payment_path(order), method: :delete, class: 'button is-small is-danger is-outlined'
+              = button_to 'Annuler le paiement',
+                  admin_payment_path(order, filter: params[:filter]),
+                  method: :delete,
+                  class: 'button is-small is-danger is-outlined is-fullwidth'
             - else
-              = button_to 'Marquer comme payé', admin_payments_path(order_id: order.id), class: 'button is-small is-info is-outlined'
+              = button_to 'Marquer comme payé',
+                  admin_payments_path(order_id: order.id, filter: params[:filter]),
+                  class: 'button is-small is-info is-outlined is-fullwidth'
   = render 'shared/pagination', items: @orders
 - else
   .message.is-info
