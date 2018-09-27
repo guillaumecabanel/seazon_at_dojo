@@ -27,7 +27,7 @@ h1.title.is-1 = t("activerecord.models.servings")
         | ℹ
         =< t("activerecord.models.no_out_of_date_servings")
 
-  - if @week_sold_out_servings.any?
+  - if @servings_sold_out_this_week.any?
     h2.title.is-3 = t("activerecord.models.sold_out_servings_of_the_week")
     .columns.is-multiline.is-mobile
         - @sold_out_servings.each do |serving|
