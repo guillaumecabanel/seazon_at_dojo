@@ -247,10 +247,10 @@ fr:
       edit_meal_errors: Une erreur s'est produite lors de la modification du menu, veuillez vérifier les champs.
       meal_destroyed: Le menu a bien été supprimé.
       serving: P'tit plat
-      servings: 🍱 Les p'tit plats
-      out_of_date_servings: Les p'tit plats périmés
-      sold_out_servings: Les p'tit plats plus disponibles
-      no_servings: 😱 Il n'est pas possible de commander de p'tit plats pour l'instant.
+      servings: 🍱 Les p'tits plats
+      out_of_date_servings: Les p'tits plats périmés
+      sold_out_servings: Les p'tits plats plus disponibles
+      no_servings: 😱 Il n'est pas possible de commander de p'tit plat pour l'instant.
       no_out_of_date_servings: Il n'y a pas de p'tit plat périmé.
       no_sold_out_servings: Il n'y a pas de p'tit plat non disponible.
       new_serving: Ajouter un p'tit plat
