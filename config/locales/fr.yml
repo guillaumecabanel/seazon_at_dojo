@@ -250,9 +250,11 @@ fr:
       servings: 🍱 Les p'tits plats
       out_of_date_servings: Les p'tits plats périmés
       sold_out_servings: Les p'tits plats plus disponibles
+      sold_out_servings_of_the_week: Les p'tits plats de la semaine plus disponibles
       no_servings: 😱 Il n'est pas possible de commander de p'tit plat pour l'instant.
-      no_out_of_date_servings: Il n'y a pas de p'tit plat périmé.
+      no_out_of_date_servings: Il n'y a pas de p'tit plat périmé. 🎉
       no_sold_out_servings: Il n'y a pas de p'tit plat non disponible.
+      no_sold_out_servings_for_this_week: Tous les p'tits plat de la semaine sont disponibles.
       new_serving: Ajouter un p'tit plat
       edit_serving: Modifier ce p'tit plat
       new_serving_success: Le nouveau p'tit plat a été créé avec succès.

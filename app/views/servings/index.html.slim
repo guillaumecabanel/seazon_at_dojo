@@ -27,8 +27,8 @@ h1.title.is-1 = t("activerecord.models.servings")
         | ℹ
         =< t("activerecord.models.no_out_of_date_servings")
 
-  - if @sold_out_servings.any?
-    h2.title.is-3 = t("activerecord.models.sold_out_servings")
+  - if @week_sold_out_servings.any?
+    h2.title.is-3 = t("activerecord.models.sold_out_servings_of_the_week")
     .columns.is-multiline.is-mobile
         - @sold_out_servings.each do |serving|
           .column.is-one-quarter-desktop.is-half-tablet
@@ -37,4 +37,4 @@ h1.title.is-1 = t("activerecord.models.servings")
     .message.is-info
       .message-body
         | ℹ
-        =< t("activerecord.models.no_sold_out_servings")
+        =< t("activerecord.models.no_sold_out_servings_for_this_week")
