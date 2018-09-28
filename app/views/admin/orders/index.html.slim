@@ -28,7 +28,7 @@ h1.title.is-1 = t("activerecord.models.orders")
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
             - if order.pro_expense
-              = (order.serving.price * 1.055).round(2)
+              = (order.serving.price * 1.055).round(1)
             - else
               = order.serving.price
             | €
