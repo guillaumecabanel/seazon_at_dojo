@@ -1,11 +1,13 @@
 .serving
   .flexbox.flexbox-between
     .flexbox-item
-      = serving.price.round(0)
-      | €
-      span.has-text-grey<
+      - if current_user.pro_expenses
         = (serving.price * 1.055).round(1)
-        | 0 € si ndf
+        | €
+      - else
+        = serving.price.round(0)
+        | €
+
     .flexbox-item
       - if serving.remaining > 2
         span.tag.is-rounded.is-info

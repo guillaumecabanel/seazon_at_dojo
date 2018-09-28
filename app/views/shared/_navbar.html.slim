@@ -39,6 +39,9 @@ nav.navbar.is-fixed-top role="navigation" aria-label="main navigation"
             span.tag.is-danger Admin
         .navbar-item = current_user.slack_name
         .navbar-item
+          = link_to edit_preferences_path, class: 'button is-info is-outlined' do
+            i.fas.fa-sliders-h
+        .navbar-item
           = link_to destroy_user_session_path, method: :delete, class: 'button is-warning is-outlined' do
             = t("devise.shared.links.sign_out")
             | &nbsp;

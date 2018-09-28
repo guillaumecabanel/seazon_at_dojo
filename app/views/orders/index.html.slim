@@ -3,10 +3,8 @@ h1.title.is-1 = t("activerecord.models.my_orders")
 - unless current_user.debt.zero?
   .notification.is-warning
     | Pense à payer
-    =< current_user.debt.round(0)
-    | € (
-    =  (current_user.debt.* 1.055).round(1)
-    | 0 € si notes de frais) par Lydia au
+    =<  current_user.debt.round(1)
+    | € par Lydia au
     span.has-text-weight-bold=<> ENV['LYDIA_PHONE_NUMBER']
 
 - if @orders.any?
@@ -18,20 +16,34 @@ h1.title.is-1 = t("activerecord.models.my_orders")
         th prix
         th Commandé le
         th Paiement
+        th
+          | Note de frais
+          =< link_to edit_preferences_path do
+            i.fas.fa-sliders-h
     tbody
       - @orders.each do |order|
         tr
           td = order.serving.meal.title
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
-            = order.serving.price.round(0)
-            | €
+            - if order.pro_expense
+              = (order.serving.price * 1.055).round(1)
+              | €
+            - else
+              = order.serving.price.round(0)
+              | €
           td = l(order.created_at, format: :short)
           td
             - if order.paid_at
               span.tag.is-info Payé
             - else
               span.tag.is-warning Non payé
+          td.has-text-centered
+            - if order.paid_at
+              div class=(order.pro_expense ? 'far fa-check-square' : 'far fa-square')
+            - else
+              = link_to order_path(order, pro_expense: !order.pro_expense), method: :put do
+                div class=(order.pro_expense ? 'far fa-check-square' : 'far fa-square')
   .kaminari-pagination
     = paginate @orders
 - else

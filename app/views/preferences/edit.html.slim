@@ -1,0 +1,29 @@
+h1.title.is-1 🎚 Mes préférences
+
+.columns.is-mobile.is-centered
+  .column.is-two-thirds
+    .card
+      .card-header
+        .card-header-title
+          h2.title.is-3 Obtenir des factures
+
+      .card-content
+        p Il est possible d'obtenir des factures des commandes Seazon pour pouvoir faire des notes de frais.
+        p Dans ce cas, une <strong>T.V.A. de 5.5%</strong> s'applique (un plat à 7€ revient donc à 7€40).
+
+        br
+        = simple_form_for @user, url: preferences_path do |f|
+          label.checkbox
+            input value="false" name="user[pro_expenses]" type="hidden"
+            input value="true" type="checkbox" name="user[pro_expenses]" id="user_pro_expenses" checked=(@user.pro_expenses)
+            span< Je souhaite pouvoir obtenir des factures et <strong>accepte de payer la T.V.A. de 5,5%</strong>.
+
+          br
+          br
+          .message.is-info
+            .message-body
+              | ℹ Il reste possible de modifier le tarif à appliquer à chaque commande, tant qu'elle n'a pas été payée, depuis
+              =< link_to "Mes commandes", orders_path
+              | .
+
+          = f.submit 'Modifier', class: 'button is-warning'

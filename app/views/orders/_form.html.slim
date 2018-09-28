@@ -3,11 +3,13 @@
   .box.box-with-footer
     .flexbox.flexbox-between
       .flexbox-item
-        = serving.price.round(0)
-        | €
-        span.has-text-grey<
+        - if current_user.pro_expenses
           = (serving.price * 1.055).round(1)
-          | 0 € si besoin d'une note de frais
+          | €
+          span.has-text-grey< dont 5.5% de T.V.A.
+        - else
+          = serving.price.round(0)
+          | €
       .flexbox-item
         span.tag.is-rounded.is-info
           = pluralize(serving.remaining, 'plat disponible', plural: 'plats disponibles')
@@ -19,8 +21,13 @@
   .box-footer
     .flexbox.flexbox-between
       .flexbox-item.flexbox-main-item
+        label.checkbox
+          input value="false" name="order[pro_expense]" type="hidden"
+          input value="true" type="checkbox" name="order[pro_expense]" id="order_pro_expense" checked=(order.pro_expense)
+          span< T.V.A. de 5,5% pour obtenir une note frais
       .field.is-grouped
         .control
           = link_to t("form.cancel"), servings_path, class: 'button is-text'
         .control
-          = order_form.submit t("form.command"), class: 'button is-success'
+          = order_form.button :button, class: 'button is-success' do
+            = t("form.command")

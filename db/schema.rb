@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_121202) do
+ActiveRecord::Schema.define(version: 2018_08_29_133518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_121202) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "pro_expense", default: false
     t.index ["serving_id"], name: "index_orders_on_serving_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_121202) do
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.string "slack_id"
+    t.boolean "pro_expenses", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
