@@ -1,16 +1,14 @@
 h1.title.is-1 = t("activerecord.models.orders")
 
+.tabs.is-boxed
+  ul
+    li class=("#{'is-active' unless params[:filter]}")
+      = link_to 'Toutes', admin_orders_path
+    li class=("#{'is-active' if params[:filter] == 'not-paid'}")
+      = link_to 'Non payées', admin_orders_path(filter: 'not-paid')
+    li class=("#{'is-active' if params[:filter] == 'paid'}")
+      = link_to 'Payées', admin_orders_path(filter: 'paid')
 - if @orders.any?
-  .tabs.is-boxed
-    ul
-      li class=("#{'is-active' unless params[:filter]}")
-        = link_to 'Toutes', admin_orders_path
-      li class=("#{'is-active' if params[:filter] == 'not-paid'}")
-        = link_to 'Non payées', admin_orders_path(filter: 'not-paid')
-      li class=("#{'is-active' if params[:filter] == 'paid'}")
-        = link_to 'Payées', admin_orders_path(filter: 'paid')
-
-
   table.table.is-striped.is-fullwidth
     thead
       tr
