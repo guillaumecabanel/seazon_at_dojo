@@ -2,7 +2,7 @@
   .flexbox.flexbox-between
     .flexbox-item
       - if current_user.pro_expenses
-        = (serving.price * 1.055).round(2)
+        = (serving.price * 1.055).round(1)
         | €
       - else
         = serving.price.round(0)

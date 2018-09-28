@@ -3,7 +3,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
 - unless current_user.debt.zero?
   .notification.is-warning
     | Pense à payer
-    =<  current_user.debt.round(2)
+    =<  current_user.debt.round(1)
     | € par Lydia au
     span.has-text-weight-bold=<> ENV['LYDIA_PHONE_NUMBER']
 

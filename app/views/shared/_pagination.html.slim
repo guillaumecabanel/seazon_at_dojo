@@ -1,0 +1,5 @@
+nav.pagination role="navigation" aria-label="pagination"
+  - unless path_to_prev_page(items).nil?
+    = link_to "Plus récentes", path_to_prev_page(items), class: "pagination-previous"
+  - unless path_to_next_page(items).nil?
+    = link_to "Plus anciennes", path_to_next_page(items), class: "pagination-next"
