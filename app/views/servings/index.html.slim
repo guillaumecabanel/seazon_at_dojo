@@ -30,7 +30,7 @@ h1.title.is-1 = t("activerecord.models.servings")
   - if @servings_sold_out_this_week.any?
     h2.title.is-3 = t("activerecord.models.sold_out_servings_of_the_week")
     .columns.is-multiline.is-mobile
-        - @sold_out_servings.each do |serving|
+        - @servings_sold_out_this_week.each do |serving|
           .column.is-one-quarter-desktop.is-half-tablet
             = render 'serving', serving: serving
   - else
