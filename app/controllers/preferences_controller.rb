@@ -6,6 +6,7 @@ class PreferencesController < ApplicationController
 
   def update
     @user.update(user_params)
+    flash[:notice] = helpers.t("preferences.preferences_updated_with_success")
     redirect_to edit_preferences_path
   end
 

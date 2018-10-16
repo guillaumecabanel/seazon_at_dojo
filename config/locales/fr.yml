@@ -274,6 +274,9 @@ fr:
       edit_order_errors: Une erreur s'est produite lors de la modification de la commande, veuillez vérifier les champs.
       order_destroyed: La commande a bien été supprimée.
   statistics: 📈 Statistiques
+  preferences:
+    my_preferences: 🎚 Mes préférences
+    preferences_updated_with_success: Vos préférences ont bien été mises à jour.
   misc:
     orders:
       zero: Pas de commande
