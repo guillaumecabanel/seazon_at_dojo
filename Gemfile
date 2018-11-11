@@ -24,6 +24,10 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'bugsnag'
 
+# CVE-2018-16468 Vulnerable versions: < 2.2.3 Patched version: 2.2.3 
+gem "loofah", ">= 2.2.3"
+
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'faker'
