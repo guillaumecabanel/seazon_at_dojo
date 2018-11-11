@@ -1,0 +1,14 @@
+table.table.is-striped.has-labels {
+  tr:nth-child(even) {
+    background-color: hsl(0, 0%, 96%) !important;
+  }
+  tr:nth-child(odd) {
+    background-color: hsl(0, 0%, 98%) !important;
+  }
+  thead tr th {
+    background-color: white;
+  }
+  tr.has-background-body {
+    background-color: hsl(0, 0%, 98%);
+  }
+}
