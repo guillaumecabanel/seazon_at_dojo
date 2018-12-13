@@ -5,7 +5,7 @@ gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '5.2.0'
+gem 'rails', '5.2.2'
 gem 'redis'
 gem 'devise'
 gem 'devise-i18n'
@@ -23,10 +23,6 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'bugsnag'
-
-# CVE-2018-16468 Vulnerable versions: < 2.2.3 Patched version: 2.2.3 
-gem "loofah", ">= 2.2.3"
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'
