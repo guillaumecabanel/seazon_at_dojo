@@ -4,7 +4,7 @@
     .flexbox.flexbox-between
       .flexbox-item
         - if current_user.pro_expenses
-          = (serving.price * 1.055).round(1)
+          = (serving.price * 1.055).round(2)
           | €
           span.has-text-grey< dont 5.5% de T.V.A.
         - else

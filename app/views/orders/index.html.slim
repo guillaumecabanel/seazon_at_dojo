@@ -3,7 +3,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
 - unless current_user.debt.zero?
   .notification.is-warning
     | Pense à payer
-    =<  current_user.debt.round(1)
+    =<  current_user.debt.round(2)
     | € par Lydia au
     span.has-text-weight-bold=<> ENV['LYDIA_PHONE_NUMBER']
 
@@ -27,11 +27,10 @@ h1.title.is-1 = t("activerecord.models.my_orders")
           td = l(order.serving.best_before, format: "%d.%m.%Y")
           td
             - if order.pro_expense
-              = (order.serving.price * 1.055).round(1)
-              | €
+              = (order.serving.price * 1.055).round(2)
             - else
               = order.serving.price.round(0)
-              | €
+            | €
           td = l(order.created_at, format: :short)
           td
             - if order.paid_at
