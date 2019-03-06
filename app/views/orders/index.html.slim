@@ -8,6 +8,9 @@ h1.title.is-1 = t("activerecord.models.my_orders")
     span.has-text-weight-bold=<> ENV['LYDIA_PHONE_NUMBER']
 
 - if @orders.any?
+
+  h3.title.is-3 = t("misc.orders", count: @orders.count)
+
   table.table.is-striped.is-fullwidth
     thead
       tr
@@ -21,30 +24,40 @@ h1.title.is-1 = t("activerecord.models.my_orders")
           =< link_to edit_preferences_path do
             i.fas.fa-sliders-h
     tbody
-      - @orders.each do |order|
-        tr
-          td = order.serving.meal.title
-          td = l(order.serving.best_before, format: "%d.%m.%Y")
-          td
-            - if order.pro_expense
-              = (order.serving.price * 1.055).round(2)
-            - else
-              = order.serving.price.round(0)
-            | €
-          td = l(order.created_at, format: :short)
-          td
-            - if order.paid_at
-              span.tag.is-info Payé
-            - else
-              span.tag.is-warning Non payé
-          td.has-text-centered
-            - if order.paid_at
-              div class=(order.pro_expense ? 'far fa-check-square' : 'far fa-square')
-            - else
-              = link_to order_path(order, pro_expense: !order.pro_expense), method: :put do
+      - @orders_by_week.each do |begin_of_week, orders_for_the_week|
+        tr.has-background-body
+          th colspan="8"
+            .tag.is-warning
+              | Du
+              - if begin_of_week.month == (begin_of_week + 6.days).month
+                =<> l(begin_of_week, format: "%d")
+              - else
+                =<> l(begin_of_week, format: "%d %B")
+              | au 
+              =< l(begin_of_week + 6.days, format: "%d %B")
+        - orders_for_the_week.each do |order|
+          tr
+            td = order.serving.meal.title
+            td = l(order.serving.best_before, format: "%d.%m.%Y")
+            td
+              - if order.pro_expense
+                = (order.serving.price * 1.055).round(2)
+              - else
+                = order.serving.price.round(0)
+              | €
+            td = l(order.created_at, format: :short)
+            td
+              - if order.paid_at
+                span.tag.is-info Payé
+              - else
+                span.tag.is-warning Non payé
+            td.has-text-centered
+              - if order.paid_at
                 div class=(order.pro_expense ? 'far fa-check-square' : 'far fa-square')
-  .kaminari-pagination
-    = paginate @orders
+              - else
+                = link_to order_path(order, pro_expense: !order.pro_expense), method: :put do
+                  div class=(order.pro_expense ? 'far fa-check-square' : 'far fa-square')
+  = render 'shared/pagination', items: @orders
 - else
   .message.is-info
     .message-body

@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.where(user: current_user).order(created_at: :desc).page(params[:page]).per(15)
+
+    @orders_by_week = @orders.group_by do |order| 
+      order.created_at.beginning_of_week
+    end
   end
 
   def new
