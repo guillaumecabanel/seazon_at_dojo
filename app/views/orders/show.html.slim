@@ -1,0 +1,19 @@
+.container
+  .columns
+    .column.is-half-desktop.is-offset-3-desktop
+      h2.title = t("activerecord.models.your_order")
+
+      .box.box-with-footer
+        .flexbox.flexbox-between
+          .flexbox-item
+            - if current_user.pro_expenses
+              = (@serving.price * 1.055).round(2)
+              | €
+              span.has-text-grey< dont 5.5% de T.V.A.
+            - else
+              = @serving.price.round(0)
+              | €
+        p.is-size-7.has-text-grey
+          | DLC
+          =< l(@serving.best_before, format: "%d.%m.%Y")
+        = render 'meals/details', meal: @serving.meal

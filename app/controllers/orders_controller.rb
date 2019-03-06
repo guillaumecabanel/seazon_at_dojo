@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:update, :show]
+
   def index
     @orders = Order.where(user: current_user).order(created_at: :desc).page(params[:page]).per(15)
 
@@ -27,14 +29,21 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.find(params[:id])
     @order.update(pro_expense: params[:pro_expense]) unless @order.paid_at
     redirect_to orders_path
+  end
+
+  def show
+    @serving = @order.serving
   end
 
   private
 
   def order_params
     params.require(:order).permit(:pro_expense)
+  end
+
+  def set_order
+    @order = current_user.orders.find(params[:id])
   end
 end

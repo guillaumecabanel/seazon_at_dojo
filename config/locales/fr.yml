@@ -265,6 +265,7 @@ fr:
       order: Commande
       orders: 🤑 Les commandes
       my_orders: ☑ Mes commandes
+      your_order: ☑ Votre commande
       no_orders: Il n'y a pas de commande.
       new_order: Ajouter une commande
       edit_order: Modifier cette commande
@@ -282,3 +283,7 @@ fr:
       zero: Pas de commande
       one: 1 commande
       other: '%{count} commandes'
+    ordered_servings:
+      zero: Vous n'avez pas encore commandé de p'tit plat 🤷
+      one: Vous avez commandé votre premier p'tit plat ! 🎉
+      other: "Vous avez déjà commandé %{count} p'tits plats 😎"

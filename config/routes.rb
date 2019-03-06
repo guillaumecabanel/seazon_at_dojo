@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
 
-  resources :orders, only: [:index, :update]
+  resources :orders, only: [:index, :update, :show]
 
   resource :preferences, only: [:edit, :update]
 end

@@ -9,7 +9,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
 
 - if @orders.any?
 
-  h3.title.is-3 = t("misc.orders", count: @orders.count)
+  span.tag.is-light.is-medium= t("misc.ordered_servings", count: @orders.total_count)
 
   table.table.is-striped.is-fullwidth
     thead
@@ -37,7 +37,7 @@ h1.title.is-1 = t("activerecord.models.my_orders")
               =< l(begin_of_week + 6.days, format: "%d %B")
         - orders_for_the_week.each do |order|
           tr
-            td = order.serving.meal.title
+            td = link_to order.serving.meal.title, order_path(order)
             td = l(order.serving.best_before, format: "%d.%m.%Y")
             td
               - if order.pro_expense
