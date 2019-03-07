@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   root controller: :servings, action: :index
 
   namespace :admin do
-    resources :meals,    only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :orders,   only: [:index]
-    resources :payments, only: [:create, :destroy], param: :order_id
-    resources :servings, only: [:new, :create, :edit, :update, :destroy]
-    resource :statistics, only: [:show]
+    resources :meals,      only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :orders,     only: [:index]
+    resources :payments,   only: [:create, :destroy], param: :order_id
+    resources :servings,   only: [:new, :create, :edit, :update, :destroy]
+    resource  :statistics, only: [:show]
+    resources :users,      only: [:show]
   end
 
   resources :servings, only: [:index] do

@@ -1,0 +1,20 @@
+h1.title.is-1
+  => t("activerecord.models.orders")
+  | de
+  =< @user.slack_name
+
+.tabs.is-boxed
+  ul
+    li class=("#{'is-active' unless params[:filter]}")
+      = link_to 'Toutes', admin_user_path
+    li class=("#{'is-active' if params[:filter] == 'not-paid'}")
+      = link_to 'Non payées', admin_user_path(filter: 'not-paid')
+    li class=("#{'is-active' if params[:filter] == 'paid'}")
+      = link_to 'Payées', admin_user_path(filter: 'paid')
+- if @orders_by_week.any?
+  = render 'admin/orders/list', orders_by_week: @orders_by_week, orders: @orders
+- else
+  .message.is-info
+    .message-body
+      | ℹ
+      =< t("activerecord.models.no_orders")
