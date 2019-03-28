@@ -3,11 +3,11 @@ class Serving < ApplicationRecord
   has_many :orders
 
   scope :orderable,           -> {  left_joins(:orders).
-                                    where("best_before >= ?", Date.today).
+                                    where("best_before >= ?", DateTime.current.beginning_of_day).
                                     group("servings.id").
                                     having("servings.quantity > COUNT(orders.id)") }
 
-  scope :out_of_date,         -> {  not_sold_out.where("best_before < ?", Date.today) }
+  scope :out_of_date,         -> {  not_sold_out.where("best_before < ?", DateTime.current.beginning_of_day) }
 
   scope :sold_out,            -> {  joins(:orders).
                                     group("servings.id").
