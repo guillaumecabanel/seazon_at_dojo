@@ -27,6 +27,7 @@ gem 'bugsnag'
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'faker'
+  gem 'rubocop', require: false
 end
 
 group :development, :test do
